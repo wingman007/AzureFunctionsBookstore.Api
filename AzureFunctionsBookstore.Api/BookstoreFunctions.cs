@@ -42,10 +42,13 @@ namespace AzureFunctionsBookstore.Api
             return new OkObjectResult(books);
         }
 
+
+        /*
+
         [FunctionName("GetBookById")]
         [OpenApiOperation(operationId: "GetBookById", tags: new[] { "Books" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
-        [OpenApiParameter(name: "Books", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "The **id** parameter")]
+        [OpenApiParameter(name: "id", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "The **id** parameter")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "The OK response")]
         public async Task<IActionResult> GetBookById(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "book/{id}")] HttpRequest req, string id)
@@ -132,6 +135,8 @@ namespace AzureFunctionsBookstore.Api
 
             return new OkObjectResult(id);
         }
+
+        */
     }
 }
 
