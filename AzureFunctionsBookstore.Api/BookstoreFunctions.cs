@@ -28,7 +28,7 @@ namespace AzureFunctionsBookstore.Api
         [FunctionName("GetBooks")]
         [OpenApiOperation(operationId: "GetBooks", tags: new[] {"Books"})]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
-        [OpenApiParameter(name: "", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "No parameters")]
+        [OpenApiParameter(name: "Book", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "No parameters")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "The OK response")]
         public async Task<IActionResult> GetBooks(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "book")] HttpRequest req)
