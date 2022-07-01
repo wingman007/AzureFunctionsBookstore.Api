@@ -28,7 +28,7 @@ namespace AzureFunctionsBookstore.Api
         [FunctionName("GetBooks")]
         [OpenApiOperation(operationId: "GetBooks", tags: new[] {"Books"})]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
-        [OpenApiParameter(name: "Book", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "No parameters")]
+        [OpenApiParameter(name: "Books", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "No parameters")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "The OK response")]
         public async Task<IActionResult> GetBooks(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "book")] HttpRequest req)
@@ -45,7 +45,7 @@ namespace AzureFunctionsBookstore.Api
         [FunctionName("GetBookById")]
         [OpenApiOperation(operationId: "GetBookById", tags: new[] { "Books" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
-        [OpenApiParameter(name: "id", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "The **id** parameter")]
+        [OpenApiParameter(name: "Books", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "The **id** parameter")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "The OK response")]
         public async Task<IActionResult> GetBookById(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "book/{id}")] HttpRequest req, string id)
@@ -63,7 +63,7 @@ namespace AzureFunctionsBookstore.Api
         [FunctionName("AddBook")]
         [OpenApiOperation(operationId: "AddBook", tags: new[] { "Books" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
-        [OpenApiParameter(name: "Book ", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "{Id: int, Title: string, Author: string}")]
+        [OpenApiParameter(name: "Books", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "{Id: int, Title: string, Author: string}")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "The OK response")]
         public async Task<IActionResult> AddBook(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "book")] HttpRequest req)
@@ -86,7 +86,7 @@ namespace AzureFunctionsBookstore.Api
         [FunctionName("UpdateBook")]
         [OpenApiOperation(operationId: "UpdateBook", tags: new[] { "Books" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
-        [OpenApiParameter(name: "Book ", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "{Id: int, Title: string, Author: string}")]
+        [OpenApiParameter(name: "Books", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "{Id: int, Title: string, Author: string}")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "The OK response")]
         public async Task<IActionResult> UpdateBook(
             [HttpTrigger(AuthorizationLevel.Function, "put", Route = "book/{id}")] HttpRequest req, string id)
@@ -109,7 +109,7 @@ namespace AzureFunctionsBookstore.Api
         [FunctionName("DeleteBook")]
         [OpenApiOperation(operationId: "DeleteBook", tags: new[] { "Books" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
-        [OpenApiParameter(name: "Book ", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "Id")]
+        [OpenApiParameter(name: "Books", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "Id")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "The OK response")]
         public async Task<IActionResult> DeleteBook(
             [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "book/{id}")] HttpRequest req, string id)
