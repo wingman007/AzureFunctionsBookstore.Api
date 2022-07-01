@@ -84,7 +84,7 @@ namespace AzureFunctionsBookstore.Api
         }
 
         [FunctionName("UpdateBook")]
-        [OpenApiOperation(operationId: "AddBook", tags: new[] { "Books" })]
+        [OpenApiOperation(operationId: "UpdateBook", tags: new[] { "Books" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
         [OpenApiParameter(name: "Book ", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "{Id: int, Title: string, Author: string}")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "The OK response")]
@@ -107,7 +107,7 @@ namespace AzureFunctionsBookstore.Api
         }
 
         [FunctionName("DeleteBook")]
-        [OpenApiOperation(operationId: "AddBook", tags: new[] { "Books" })]
+        [OpenApiOperation(operationId: "DeleteBook", tags: new[] { "Books" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
         [OpenApiParameter(name: "Book ", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "Id")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "The OK response")]
